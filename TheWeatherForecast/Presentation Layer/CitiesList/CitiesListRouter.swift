@@ -6,7 +6,9 @@
 //  Copyright © 2020 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-protocol CitiesListRouterInput { }
+protocol CitiesListRouterInput {
+    func pushChooseCityViewController()
+}
 
 final class CitiesListRouter: CitiesListRouterInput {
     
@@ -14,6 +16,11 @@ final class CitiesListRouter: CitiesListRouterInput {
     weak var viewController: CitiesListViewController?
     
     // MARK: - CitiesListRouterInput
-    
-    // MARK: - Module functions
+    func pushChooseCityViewController() {
+        let chooseCityVC = ChooseCityConfigurator.create()
+        let viewModelInput = ChooseCityConfigurator.configure(with: chooseCityVC)
+        viewModelInput.configure(with: nil)
+        
+        viewController?.navigationController?.pushViewController(chooseCityVC, animated: true)
+    }
 }

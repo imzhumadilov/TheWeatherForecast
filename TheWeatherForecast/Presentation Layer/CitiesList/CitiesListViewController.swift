@@ -43,7 +43,7 @@ extension CitiesListViewController {
     
     @objc
     func rightBarButtonTapped() {
-        print(#function)
+        router?.pushChooseCityViewController()
     }
 }
 
