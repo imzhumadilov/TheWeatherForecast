@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseCityViewController" customModule="TheWeatherForecast" customModuleProvider="target">
             <connections>
                 <outlet property="areaLabel" destination="iPY-rn-cUn" id="b9a-Py-hFi"/>
+                <outlet property="mapView" destination="6PD-wI-cDa" id="Hqh-2D-Saj"/>
                 <outlet property="searchBar" destination="q4o-hX-vfC" id="GFF-cw-FLf"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Rz8-f9-Cv3"/>
             </connections>
@@ -104,19 +105,23 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search area" translatesAutoresizingMaskIntoConstraints="NO" id="q4o-hX-vfC">
-                    <rect key="frame" x="40" y="62" width="334" height="44"/>
+                    <rect key="frame" x="24" y="62" width="366" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="o82-sd-dn1"/>
                     </constraints>
                     <textInputTraits key="textInputTraits"/>
+                    <scopeButtonTitles>
+                        <string>Title</string>
+                        <string>Title</string>
+                    </scopeButtonTitles>
                 </searchBar>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current area" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iPY-rn-cUn">
                     <rect key="frame" x="12" y="116" width="390" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="Ocm-7h-Y0u"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -128,14 +133,14 @@
                 <constraint firstItem="6PD-wI-cDa" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4Y7-Mj-NIT"/>
                 <constraint firstAttribute="bottom" secondItem="Bq4-2F-hnC" secondAttribute="bottom" id="AeD-yX-139"/>
                 <constraint firstItem="iPY-rn-cUn" firstAttribute="top" secondItem="q4o-hX-vfC" secondAttribute="bottom" constant="10" id="IF4-0p-gzg"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="q4o-hX-vfC" secondAttribute="trailing" constant="40" id="LGQ-pe-jYK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="q4o-hX-vfC" secondAttribute="trailing" constant="24" id="LGQ-pe-jYK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iPY-rn-cUn" secondAttribute="trailing" constant="12" id="Qrx-tf-7r2"/>
                 <constraint firstItem="Bq4-2F-hnC" firstAttribute="top" secondItem="wGa-OM-Rrk" secondAttribute="bottom" constant="28" id="SXe-Q2-6Be"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6PD-wI-cDa" secondAttribute="trailing" id="Uta-YD-yGv"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bq4-2F-hnC" secondAttribute="trailing" id="WPW-en-aCk"/>
                 <constraint firstItem="Bq4-2F-hnC" firstAttribute="top" secondItem="6PD-wI-cDa" secondAttribute="bottom" constant="-20" id="ZM8-mH-0hq"/>
                 <constraint firstItem="Bq4-2F-hnC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="agn-B5-xAT"/>
-                <constraint firstItem="q4o-hX-vfC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="c3P-2P-QBV"/>
+                <constraint firstItem="q4o-hX-vfC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="c3P-2P-QBV"/>
                 <constraint firstItem="12S-AR-4xx" firstAttribute="centerX" secondItem="6PD-wI-cDa" secondAttribute="centerX" id="eml-1S-zuW"/>
                 <constraint firstItem="iPY-rn-cUn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="jWt-oq-8bz"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wGa-OM-Rrk" secondAttribute="trailing" constant="28" id="kbp-p3-ufT"/>

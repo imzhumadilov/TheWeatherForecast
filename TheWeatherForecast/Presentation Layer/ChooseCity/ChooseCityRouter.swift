@@ -6,7 +6,9 @@
 //  Copyright © 2020 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-protocol ChooseCityRouterInput { }
+protocol ChooseCityRouterInput {
+    func showAlert(title: String, message: String?)
+}
 
 final class ChooseCityRouter: ChooseCityRouterInput {
     
@@ -14,6 +16,10 @@ final class ChooseCityRouter: ChooseCityRouterInput {
     weak var viewController: ChooseCityViewController?
     
     // MARK: - ChooseCityRouterInput
-    
-    // MARK: - Module functions
+    func showAlert(title: String, message: String?) {
+        
+        let alert = AlertController(title: title, message: message, preferredStyle: .alert)
+        
+        viewController?.present(alert, animated: true)
+    }
 }
