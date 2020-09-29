@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AddressData" representedClassName="AddressData" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <relationship name="coordinates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoordinatesData" inverseName="address" inverseEntity="CoordinatesData"/>
+    </entity>
+    <entity name="CoordinatesData" representedClassName="CoordinatesData" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AddressData" inverseName="coordinates" inverseEntity="AddressData"/>
+    </entity>
+    <elements>
+        <element name="AddressData" positionX="-304.41796875" positionY="-61.44921875" width="128" height="88"/>
+        <element name="CoordinatesData" positionX="-63" positionY="-18" width="128" height="88"/>
+    </elements>
 </model>

@@ -16,12 +16,20 @@ final class CitiesListViewController: UIViewController {
     // MARK: - Props
     var viewModel: CitiesListViewModel?
     var router: CitiesListRouterInput?
+    var database: AddressRepository?
+    
+    private var array: [Address] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupComponents()
+        loadData()
     }
     
     // MARK: - Setup functions
@@ -45,6 +53,18 @@ extension CitiesListViewController {
     func rightBarButtonTapped() {
         router?.pushChooseCityViewController()
     }
+    
+    private func loadData() {
+
+        database?.loadData { [weak self] result in
+            switch result {
+            case .success(let array):
+                self?.array = array.map({ Address(from: $0) })
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 // MARK: - Module functions
@@ -54,7 +74,7 @@ extension CitiesListViewController { }
 extension CitiesListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        array.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,11 +83,10 @@ extension CitiesListViewController: UITableViewDelegate, UITableViewDataSource {
                 .dequeueReusableCell(withIdentifier: CityTableViewCell.id,
                                      for: indexPath) as? CityTableViewCell else { return UITableViewCell() }
         
-        cell.setup(cityName: "lala")
+//        guard let city = array[indexPath.row].city else { return UITableViewCell() }
+        cell.setup(cityName: array[indexPath.row].city)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(#function)
-    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { }
 }

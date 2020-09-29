@@ -13,7 +13,7 @@ protocol CitiesListViewModelInput {
 class CitiesListViewModel {
 
     // MARK: - Props
-
+    
     // MARK: - Initialization
     init() { }
 

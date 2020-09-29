@@ -27,7 +27,10 @@
 		2823A4AC2520915400336E89 /* ChooseCityConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823A4A72520915300336E89 /* ChooseCityConfigurator.swift */; };
 		2823A4AD2520915400336E89 /* ChooseCityRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823A4A82520915300336E89 /* ChooseCityRouter.swift */; };
 		2823A4AE2520915400336E89 /* ChooseCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2823A4A92520915300336E89 /* ChooseCityViewController.xib */; };
+		282A673C2523B5C700CC5C73 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A673B2523B5C700CC5C73 /* Address.swift */; };
+		282A67402523B61A00CC5C73 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A673F2523B61A00CC5C73 /* Coordinates.swift */; };
 		288D887D2520D365008CCC5E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288D887C2520D365008CCC5E /* AlertController.swift */; };
+		28AE20BB2521075F00830287 /* AddressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE20BA2521075F00830287 /* AddressRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +56,10 @@
 		2823A4A72520915300336E89 /* ChooseCityConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityConfigurator.swift; sourceTree = "<group>"; };
 		2823A4A82520915300336E89 /* ChooseCityRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityRouter.swift; sourceTree = "<group>"; };
 		2823A4A92520915300336E89 /* ChooseCityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseCityViewController.xib; sourceTree = "<group>"; };
+		282A673B2523B5C700CC5C73 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		282A673F2523B61A00CC5C73 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		288D887C2520D365008CCC5E /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		28AE20BA2521075F00830287 /* AddressRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +180,7 @@
 		281AF621251FA29900417BF8 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
+				282A673A2523B5B300CC5C73 /* Model */,
 				281AF5D3251F906200417BF8 /* TheWeatherForecast.xcdatamodeld */,
 			);
 			path = "Data Layer";
@@ -182,6 +189,7 @@
 		281AF624251FB1C100417BF8 /* Service Layer */ = {
 			isa = PBXGroup;
 			children = (
+				282A67422523BA1500CC5C73 /* Database */,
 				281AF625251FB1CE00417BF8 /* Network */,
 			);
 			path = "Service Layer";
@@ -214,6 +222,23 @@
 				2823A4A92520915300336E89 /* ChooseCityViewController.xib */,
 			);
 			path = ChooseCity;
+			sourceTree = "<group>";
+		};
+		282A673A2523B5B300CC5C73 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				282A673B2523B5C700CC5C73 /* Address.swift */,
+				282A673F2523B61A00CC5C73 /* Coordinates.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		282A67422523BA1500CC5C73 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				28AE20BA2521075F00830287 /* AddressRepository.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		288D887B2520D340008CCC5E /* AlertController */ = {
@@ -296,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282A673C2523B5C700CC5C73 /* Address.swift in Sources */,
 				281AF627251FB1FF00417BF8 /* WeatherService.swift in Sources */,
 				281AF5CB251F906200417BF8 /* AppDelegate.swift in Sources */,
 				2823A4AC2520915400336E89 /* ChooseCityConfigurator.swift in Sources */,
@@ -308,8 +334,10 @@
 				281AF610251FA08100417BF8 /* CitiesListConfigurator.swift in Sources */,
 				281AF615251FA0D500417BF8 /* UIViewController+identifier.swift in Sources */,
 				281AF5D5251F906200417BF8 /* TheWeatherForecast.xcdatamodeld in Sources */,
+				282A67402523B61A00CC5C73 /* Coordinates.swift in Sources */,
 				288D887D2520D365008CCC5E /* AlertController.swift in Sources */,
 				281AF60F251FA08100417BF8 /* CitiesListViewController.swift in Sources */,
+				28AE20BB2521075F00830287 /* AddressRepository.swift in Sources */,
 				281AF62D251FB50600417BF8 /* CityTableViewCell.swift in Sources */,
 				2823A4AB2520915400336E89 /* ChooseCityViewController.swift in Sources */,
 			);

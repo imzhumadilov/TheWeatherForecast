@@ -43,6 +43,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewController = CitiesListConfigurator.create()
         CitiesListConfigurator.configure(with: viewController)
         
+        let context = (UIApplication.shared.delegate as? AppDelegate)?
+            .persistentContainer
+            .viewContext
+
+        if let context = context {
+            let database = AddressRepository(context: context)
+            viewController.database = database
+        }
+        
         let navigationController = UINavigationController(rootViewController: viewController)
 
         let attributes = [NSAttributedString.Key.font: UIFont(name: "Noteworthy-Bold", size: 15)]
