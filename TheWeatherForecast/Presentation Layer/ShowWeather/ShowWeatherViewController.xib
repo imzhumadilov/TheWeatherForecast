@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShowWeatherViewController" customModule="TheWeatherForecast" customModuleProvider="target">
+            <connections>
+                <outlet property="cityNameLabel" destination="wOj-y8-pv4" id="qw3-Zu-VDI"/>
+                <outlet property="segmentedControl" destination="TyX-70-iyB" id="O1y-y6-Yfb"/>
+                <outlet property="tableView" destination="zaE-ia-PvK" id="2Qr-7l-vVx"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Rz8-f9-Cv3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zaE-ia-PvK">
+                    <rect key="frame" x="0.0" y="183" width="414" height="713"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOj-y8-pv4">
+                    <rect key="frame" x="52" y="64" width="310" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="NJr-WD-ICl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TyX-70-iyB">
+                    <rect key="frame" x="40" y="112" width="334" height="32"/>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSQ-6t-oWu">
+                    <rect key="frame" x="378" y="68" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="MAm-dv-LnR"/>
+                        <constraint firstAttribute="height" constant="20" id="jqC-sD-tyL"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="cancel"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="MZj-XX-2JL"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="wOj-y8-pv4" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="1be-Aq-ne4"/>
+                <constraint firstItem="hSQ-6t-oWu" firstAttribute="centerY" secondItem="wOj-y8-pv4" secondAttribute="centerY" id="2Mt-PH-S32"/>
+                <constraint firstItem="TyX-70-iyB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="3sV-tK-oGc"/>
+                <constraint firstItem="hSQ-6t-oWu" firstAttribute="leading" secondItem="wOj-y8-pv4" secondAttribute="trailing" constant="16" id="59b-KD-4VN"/>
+                <constraint firstItem="zaE-ia-PvK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ESC-pF-Eeu"/>
+                <constraint firstAttribute="bottom" secondItem="zaE-ia-PvK" secondAttribute="bottom" id="JGr-6i-bql"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hSQ-6t-oWu" secondAttribute="trailing" constant="16" id="UgC-bK-gig"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TyX-70-iyB" secondAttribute="trailing" constant="40" id="V5e-ad-Adg"/>
+                <constraint firstItem="wOj-y8-pv4" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="gXJ-pR-VBR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zaE-ia-PvK" secondAttribute="trailing" id="n3h-9o-WX0"/>
+                <constraint firstItem="zaE-ia-PvK" firstAttribute="top" secondItem="TyX-70-iyB" secondAttribute="bottom" constant="40" id="oTa-xD-GYY"/>
+                <constraint firstItem="TyX-70-iyB" firstAttribute="top" secondItem="wOj-y8-pv4" secondAttribute="bottom" constant="20" id="tUh-nO-ifT"/>
+            </constraints>
+            <point key="canvasLocation" x="136.23188405797103" y="124.55357142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cancel" width="128" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

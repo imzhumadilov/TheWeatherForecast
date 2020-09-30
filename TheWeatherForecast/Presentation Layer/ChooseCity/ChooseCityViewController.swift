@@ -61,7 +61,9 @@ extension ChooseCityViewController {
     }
     
     @IBAction
-    func showWeatherButtonTapped(_ sender: UIButton) { }
+    func showWeatherButtonTapped(_ sender: UIButton) {
+        router?.presentShowWeatherViewController()
+    }
     
     @IBAction
     func addButtonTapped(_ sender: UIButton) { }
@@ -72,9 +74,9 @@ extension ChooseCityViewController {
     
     private func showUserLocation() {
         
-        guard let myLocation = locationManager.location?.coordinate else { return }
+        guard let userLocation = locationManager.location?.coordinate else { return }
         
-        let range = MKCoordinateRegion(center: myLocation,
+        let range = MKCoordinateRegion(center: userLocation,
                                        latitudinalMeters: 5000,
                                        longitudinalMeters: 5000)
         mapView.setRegion(range, animated: true)
