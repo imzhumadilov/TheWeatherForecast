@@ -34,6 +34,8 @@
 		2823A4AE2520915400336E89 /* ChooseCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2823A4A92520915300336E89 /* ChooseCityViewController.xib */; };
 		282A673C2523B5C700CC5C73 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A673B2523B5C700CC5C73 /* Address.swift */; };
 		282A67402523B61A00CC5C73 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A673F2523B61A00CC5C73 /* Coordinates.swift */; };
+		286FD65025248B1A007813A2 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FD64E25248B1A007813A2 /* InfoTableViewCell.swift */; };
+		286FD65125248B1A007813A2 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 286FD64F25248B1A007813A2 /* InfoTableViewCell.xib */; };
 		288D887D2520D365008CCC5E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288D887C2520D365008CCC5E /* AlertController.swift */; };
 		28AE20BB2521075F00830287 /* AddressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE20BA2521075F00830287 /* AddressRepository.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		2823A4A92520915300336E89 /* ChooseCityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseCityViewController.xib; sourceTree = "<group>"; };
 		282A673B2523B5C700CC5C73 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		282A673F2523B61A00CC5C73 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		286FD64E25248B1A007813A2 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		286FD64F25248B1A007813A2 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
 		288D887C2520D365008CCC5E /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		28AE20BA2521075F00830287 /* AddressRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +95,7 @@
 				28094D072524786100B26731 /* ShowWeatherViewController.swift */,
 				28094D062524786100B26731 /* ShowWeatherViewModel.swift */,
 				28094D0A2524786100B26731 /* ShowWeatherViewController.xib */,
+				286FD64D25248AC8007813A2 /* Cell */,
 			);
 			path = ShowWeather;
 			sourceTree = "<group>";
@@ -264,6 +269,15 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		286FD64D25248AC8007813A2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				286FD64E25248B1A007813A2 /* InfoTableViewCell.swift */,
+				286FD64F25248B1A007813A2 /* InfoTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		288D887B2520D340008CCC5E /* AlertController */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +345,7 @@
 			files = (
 				281AF5DA251F906400417BF8 /* LaunchScreen.storyboard in Resources */,
 				281AF5D7251F906400417BF8 /* Assets.xcassets in Resources */,
+				286FD65125248B1A007813A2 /* InfoTableViewCell.xib in Resources */,
 				28094D0F2524786100B26731 /* ShowWeatherViewController.xib in Resources */,
 				281AF62E251FB50600417BF8 /* CityTableViewCell.xib in Resources */,
 				281AF612251FA08100417BF8 /* CitiesListViewController.xib in Resources */,
@@ -354,6 +369,7 @@
 				281AF60E251FA08100417BF8 /* CitiesListViewModel.swift in Sources */,
 				281AF5CD251F906200417BF8 /* SceneDelegate.swift in Sources */,
 				281AF611251FA08100417BF8 /* CitiesListRouter.swift in Sources */,
+				286FD65025248B1A007813A2 /* InfoTableViewCell.swift in Sources */,
 				281AF618251FA0F300417BF8 /* String+className.swift in Sources */,
 				2823A4AA2520915400336E89 /* ChooseCityViewModel.swift in Sources */,
 				281AF610251FA08100417BF8 /* CitiesListConfigurator.swift in Sources */,
