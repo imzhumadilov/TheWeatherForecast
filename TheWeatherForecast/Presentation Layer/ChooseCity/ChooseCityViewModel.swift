@@ -13,12 +13,10 @@ protocol ChooseCityViewModelInput {
 class ChooseCityViewModel {
 
     // MARK: - Props
-
-    // MARK: - Initialization
-    init() { }
+    var address: Address?
 
     // MARK: - Public functions
-
+    
 }
 
 // MARK: - Module functions

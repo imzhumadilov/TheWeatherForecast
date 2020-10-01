@@ -20,7 +20,7 @@ final class ChooseCityViewController: UIViewController {
     var viewModel: ChooseCityViewModel?
     var router: ChooseCityRouterInput?
     
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -62,7 +62,10 @@ extension ChooseCityViewController {
     
     @IBAction
     func showWeatherButtonTapped(_ sender: UIButton) {
-        router?.presentShowWeatherViewController()
+        
+        guard let address = viewModel?.address else { return }
+        
+        router?.presentShowWeatherViewController(address: address)
     }
     
     @IBAction
@@ -110,8 +113,9 @@ extension ChooseCityViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
-        let centerLocation = CLLocation(latitude: mapView.centerCoordinate.latitude,
-                                        longitude: mapView.centerCoordinate.longitude)
+        let latitude = mapView.centerCoordinate.latitude
+        let longitude = mapView.centerCoordinate.longitude
+        let centerLocation = CLLocation(latitude: latitude, longitude: longitude)
         
         CLGeocoder().reverseGeocodeLocation(centerLocation) { [weak self] (placemarks, error) in
             
@@ -124,6 +128,11 @@ extension ChooseCityViewController: MKMapViewDelegate {
             
             let country = placemark.country
             let city = placemark.locality
+            
+            self?.viewModel?.address = Address(city: city ?? "",
+                                    country: country ?? "",
+                                    coordinates: Coordinates(latitude: latitude,
+                                                             longitude: longitude))
             
             if let city = city, let country = country {
                 self?.areaLabel.text = city + ", " + country
@@ -163,9 +172,7 @@ extension ChooseCityViewController: UISearchBarDelegate {
                 return
             }
             
-            guard let placemarks = placemarks else { return }
-            print(placemarks)
-            guard let location = placemarks.first?.location?.coordinate else { return }
+            guard let location = placemarks?.first?.location?.coordinate else { return }
             
             let range = MKCoordinateRegion(center: location,
                                            latitudinalMeters: 5000,

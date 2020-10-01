@@ -13,6 +13,12 @@ struct Address {
     let country: String
     let coordinates: Coordinates
     
+    init(city: String, country: String, coordinates: Coordinates) {
+        self.city = city
+        self.country = country
+        self.coordinates = coordinates
+    }
+    
     init(from address: AddressData) {
         self.city = address.city ?? ""
         self.country = address.country ?? ""

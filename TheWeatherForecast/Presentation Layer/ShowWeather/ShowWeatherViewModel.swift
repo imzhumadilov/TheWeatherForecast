@@ -7,18 +7,38 @@
 //
 
 protocol ShowWeatherViewModelInput {
-    func configure(with data: Any?)
+    func configure(with address: Address)
 }
 
 class ShowWeatherViewModel {
 
     // MARK: - Props
-
-    // MARK: - Initialization
-    init() { }
-
+    var loadDataCompletion: ((Result<(weatherData: WeatherData, address: Address), Error>) -> Void)?
+    
+    private var address: Address?
+//    private var weatherData: WeatherData?
+    private let weatherService = WeatherService()
+    
     // MARK: - Public functions
-
+    public func loadData() {
+        
+        guard let address = address else { return }
+        
+        weatherService.getData(coordinates: address.coordinates) { (result) -> (Void) in
+            
+            switch result {
+            
+            case .success(let weatherData):
+//                self.weatherData = weatherData
+                self.loadDataCompletion?(.success((weatherData, address)))
+                
+            case .failure(let error):
+                self.loadDataCompletion?(.failure(error))
+            }
+            
+        }
+        
+    }
 }
 
 // MARK: - Module functions
@@ -27,6 +47,7 @@ extension ShowWeatherViewModel { }
 // MARK: - ShowWeatherViewModelInput
 extension ShowWeatherViewModel: ShowWeatherViewModelInput {
 
-    func configure(with data: Any?) { }
-
+    func configure(with address: Address) {
+        self.address = address
+    }
 }

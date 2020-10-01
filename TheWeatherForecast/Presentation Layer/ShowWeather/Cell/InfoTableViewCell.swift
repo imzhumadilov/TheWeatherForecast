@@ -17,17 +17,10 @@ class InfoTableViewCell: UITableViewCell {
     // MARK: - Props
     static let id = String(describing: InfoTableViewCell.self)
     
-    // MARK: - Lifecycle
-    override func prepareForReuse() {
-        column1.text = ""
-        column2.text = ""
-        column3.text = ""
-    }
-    
     // MARK: - Setup function
-    public func setup(cityName: String) {
-        column1.text = cityName
-        column2.text = cityName
-        column3.text = cityName
+    public func setup(descr: String, data: String, addData: String) {
+        column1.text = descr
+        column2.text = data
+        column3.text = addData
     }
 }
