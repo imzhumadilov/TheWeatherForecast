@@ -12,6 +12,9 @@ struct Address {
     let city: String
     let country: String
     let coordinates: Coordinates
+    var displayTitle: String {
+        return city + ", " + country
+    }
     
     init(city: String, country: String, coordinates: Coordinates) {
         self.city = city

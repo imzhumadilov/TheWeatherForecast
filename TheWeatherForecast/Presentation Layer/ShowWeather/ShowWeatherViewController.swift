@@ -138,54 +138,10 @@ extension ShowWeatherViewController: UITableViewDelegate, UITableViewDataSource 
             }
             
         } else if weatherDataType == .daily {
-            
-            switch indexPath.row {
-            
-            case 0:
-                cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
-                           data: weatherData.daily.data[indexPath.row].temperatureMinString,
-                           addData: weatherData.daily.data[indexPath.row].temperatureMaxString)
-                
-            case 1:
-                cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
-                           data: weatherData.daily.data[indexPath.row].temperatureMinString,
-                           addData: weatherData.daily.data[indexPath.row].temperatureMaxString)
-                
-            case 2:
-                cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
-                           data: weatherData.daily.data[indexPath.row].temperatureMinString,
-                           addData: weatherData.daily.data[indexPath.row].temperatureMaxString)
-                
-            case 3:
-                cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
-                           data: weatherData.daily.data[indexPath.row].temperatureMinString,
-                           addData: weatherData.daily.data[indexPath.row].temperatureMaxString)
-                
-            case 4:
-                cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
-                           data: weatherData.daily.data[indexPath.row].temperatureMinString,
-                           addData: weatherData.daily.data[indexPath.row].temperatureMaxString)
-                
-            case 5:
-                cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
-                           data: weatherData.daily.data[indexPath.row].temperatureMinString,
-                           addData: weatherData.daily.data[indexPath.row].temperatureMaxString)
-                
-            case 6:
-                cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
-                           data: weatherData.daily.data[indexPath.row].temperatureMinString,
-                           addData: weatherData.daily.data[indexPath.row].temperatureMaxString)
-                
-            case 7:
-                cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
-                           data: weatherData.daily.data[indexPath.row].temperatureMinString,
-                           addData: weatherData.daily.data[indexPath.row].temperatureMaxString)
-                
-            default:
-                break
-            }
+            cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
+                       data: weatherData.daily.data[indexPath.row].temperatureMinString,
+                       addData: weatherData.daily.data[indexPath.row].temperatureMaxString)
         }
-        
         return cell
     }
 }

@@ -12,6 +12,7 @@ enum ChooseCityConfigurator {
         return ChooseCityViewController(nibName: ChooseCityViewController.identifier, bundle: nil)
     }
     
+    @discardableResult
     static func configure(with reference: ChooseCityViewController) -> ChooseCityViewModelInput {
         let viewModel = ChooseCityViewModel()
         

@@ -69,7 +69,13 @@ extension ChooseCityViewController {
     }
     
     @IBAction
-    func addButtonTapped(_ sender: UIButton) { }
+    func addButtonTapped(_ sender: UIButton) {
+        viewModel?.addAddress() { [weak self] (error) in
+            if error == nil {
+                self?.router?.popVC()
+            }
+        }
+    }
 }
 
 // MARK: - Module functions
@@ -130,9 +136,9 @@ extension ChooseCityViewController: MKMapViewDelegate {
             let city = placemark.locality
             
             self?.viewModel?.address = Address(city: city ?? "",
-                                    country: country ?? "",
-                                    coordinates: Coordinates(latitude: latitude,
-                                                             longitude: longitude))
+                                               country: country ?? "",
+                                               coordinates: Coordinates(latitude: latitude,
+                                                                        longitude: longitude))
             
             if let city = city, let country = country {
                 self?.areaLabel.text = city + ", " + country

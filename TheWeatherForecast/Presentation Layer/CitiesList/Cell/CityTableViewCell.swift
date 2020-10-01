@@ -10,17 +10,18 @@ import UIKit
 class CityTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
-    @IBOutlet private weak var cityLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     // MARK: - Props
     static let id = String(describing: CityTableViewCell.self)
     
+    // MARK: - Lifecycle
     override func prepareForReuse() {
-        cityLabel.text = ""
+        titleLabel.text = ""
     }
     
     // MARK: - Setup function
-    public func setup(cityName: String) {
-        cityLabel.text = cityName
+    public func setup(title: String) {
+        titleLabel.text = title
     }
 }

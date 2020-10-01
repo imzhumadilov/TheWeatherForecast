@@ -43,8 +43,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .viewContext
 
         if let context = context {
-            let database = AddressRepository(context: context)
-            viewController.database = database
+            let addressService = AddressService(context: context)
+            viewController.viewModel?.addressService = addressService
         }
         
         let navigationController = UINavigationController(rootViewController: viewController)

@@ -1,5 +1,5 @@
 //
-//  AddressRepository.swift
+//  AddressService.swift
 //  TheWeatherForecast
 //
 //  Created by Ilyas Zhumadilov on 27.09.2020.
@@ -18,7 +18,7 @@ protocol DatabaseProtocol {
     func removeData(_ data: EntityType, completion: @escaping (Result<EntityType, Error>) -> Void)
 }
 
-class AddressRepository: DatabaseProtocol {
+class AddressService: DatabaseProtocol {
     
     // MARK: - typealias
     typealias EntityType = AddressData

@@ -9,6 +9,7 @@
 protocol ChooseCityRouterInput {
     func showAlert(title: String, message: String?)
     func presentShowWeatherViewController(address: Address)
+    func popVC()
 }
 
 final class ChooseCityRouter: ChooseCityRouterInput {
@@ -31,5 +32,9 @@ final class ChooseCityRouter: ChooseCityRouterInput {
         
         showWeatherVC.modalPresentationStyle = .overFullScreen
         viewController?.present(showWeatherVC, animated: true)
+    }
+    
+    func popVC() {
+        viewController?.navigationController?.popViewController(animated: true)
     }
 }

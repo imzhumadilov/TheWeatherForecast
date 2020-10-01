@@ -16,9 +16,8 @@ final class CitiesListViewController: UIViewController {
     // MARK: - Props
     var viewModel: CitiesListViewModel?
     var router: CitiesListRouterInput?
-    var database: AddressRepository?
     
-    private var array: [Address] = [] {
+    private var addressList: [Address] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -29,7 +28,8 @@ final class CitiesListViewController: UIViewController {
         super.viewDidLoad()
         
         setupComponents()
-        loadData()
+        bindViewModel()
+        viewModel?.loadData()
     }
     
     // MARK: - Setup functions
@@ -53,28 +53,33 @@ extension CitiesListViewController {
     func rightBarButtonTapped() {
         router?.pushChooseCityViewController()
     }
-    
-    private func loadData() {
+}
 
-        database?.loadData { [weak self] result in
+// MARK: - Module functions
+extension CitiesListViewController {
+    
+    private func bindViewModel() {
+        
+        viewModel?.loadDataCompletion = { [weak self] result in
+            
             switch result {
-            case .success(let array):
-                self?.array = array.map({ Address(from: $0) })
+                
+            case .success(let addressList):
+                self?.addressList = addressList
+                self?.tableView.reloadData()
+            
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }
 }
 
-// MARK: - Module functions
-extension CitiesListViewController { }
-
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension CitiesListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        array.count
+        addressList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,8 +88,7 @@ extension CitiesListViewController: UITableViewDelegate, UITableViewDataSource {
                 .dequeueReusableCell(withIdentifier: CityTableViewCell.id,
                                      for: indexPath) as? CityTableViewCell else { return UITableViewCell() }
         
-//        guard let city = array[indexPath.row].city else { return UITableViewCell() }
-        cell.setup(cityName: array[indexPath.row].city)
+        cell.setup(title: addressList[indexPath.row].displayTitle)
         return cell
     }
     

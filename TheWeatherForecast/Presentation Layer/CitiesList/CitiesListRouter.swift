@@ -18,8 +18,8 @@ final class CitiesListRouter: CitiesListRouterInput {
     // MARK: - CitiesListRouterInput
     func pushChooseCityViewController() {
         let chooseCityVC = ChooseCityConfigurator.create()
-        let viewModelInput = ChooseCityConfigurator.configure(with: chooseCityVC)
-        viewModelInput.configure(with: nil)
+        ChooseCityConfigurator.configure(with: chooseCityVC)
+        chooseCityVC.viewModel?.delegate = viewController?.viewModel
         
         viewController?.navigationController?.pushViewController(chooseCityVC, animated: true)
     }
