@@ -210,9 +210,9 @@
 		281AF621251FA29900417BF8 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
-				282A673A2523B5B300CC5C73 /* Model */,
 				281AF5D3251F906200417BF8 /* TheWeatherForecast.xcdatamodeld */,
 				28D5E9DB2525071700F42EAB /* WeatherData.swift */,
+				282A673A2523B5B300CC5C73 /* Model */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";

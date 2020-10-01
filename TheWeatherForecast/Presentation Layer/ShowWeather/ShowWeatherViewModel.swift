@@ -32,9 +32,7 @@ class ShowWeatherViewModel {
             case .failure(let error):
                 self.loadDataCompletion?(.failure(error))
             }
-            
         }
-        
     }
 }
 

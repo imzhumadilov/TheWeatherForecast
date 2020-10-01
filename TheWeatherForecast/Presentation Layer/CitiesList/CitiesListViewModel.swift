@@ -15,6 +15,7 @@ class CitiesListViewModel {
     // MARK: - Props
     var loadDataCompletion: ((Result<[Address], Error>) -> Void)?
     var addressService: AddressService?
+    private var addressList: [AddressData] = []
     
     // MARK: - Public functions
     public func loadData() {
@@ -24,12 +25,20 @@ class CitiesListViewModel {
             switch result {
             
             case .success(let addressList):
+                self?.addressList = addressList
                 self?.loadDataCompletion?(.success(addressList.map({ Address(from: $0) })))
                 
             case .failure(let error):
                 self?.loadDataCompletion?(.failure(error))
             }
         }
+    }
+    
+    public func removeAddress(_ address: Address) {
+        
+        guard let removedAddress = addressList.filter ({ $0.coordinates?.latitude == address.coordinates.latitude && $0.coordinates?.longitude == address.coordinates.longitude }).first else { return }
+        
+        addressService?.removeData(removedAddress, completion: { [weak self] _ in self?.loadData() })
     }
 }
 

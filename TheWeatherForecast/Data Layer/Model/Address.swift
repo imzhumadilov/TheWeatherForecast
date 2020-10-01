@@ -25,6 +25,6 @@ struct Address {
     init(from address: AddressData) {
         self.city = address.city ?? ""
         self.country = address.country ?? ""
-        self.coordinates = Coordinates(latitude: 0, longitude: 0)
+        self.coordinates = Coordinates(from: address.coordinates)
     }
 }

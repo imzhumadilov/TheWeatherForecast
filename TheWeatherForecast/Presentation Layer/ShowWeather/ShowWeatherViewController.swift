@@ -13,6 +13,7 @@ final class ShowWeatherViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet private weak var cityNameLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var weatherImageView: UIImageView!
     
     // MARK: - Props
     var viewModel: ShowWeatherViewModel?
@@ -81,10 +82,11 @@ extension ShowWeatherViewController {
             case .success(let data):
                 self?.weatherData = data.weatherData
                 self?.tableView.reloadData()
-                self?.cityNameLabel.text = data.address.city + ", " + data.address.country
+                self?.cityNameLabel.text = data.address.displayTitle
+                self?.weatherImageView.image = UIImage(named: data.weatherData.currently.icon)
             
-            case .failure:
-                break
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
@@ -116,32 +118,34 @@ extension ShowWeatherViewController: UITableViewDelegate, UITableViewDataSource 
             switch indexPath.row {
             
             case 0:
-                cell.setup(descr: "temperature", data: "", addData: weatherData.currently.temperatureString)
+                cell.setup(descr: "Temperature", data: "", addData: weatherData.currently.temperatureString)
                 
             case 1:
-                cell.setup(descr: "feels like", data: "", addData: weatherData.currently.apparentTemperatureString)
+                cell.setup(descr: "Feels like", data: "", addData: weatherData.currently.apparentTemperatureString)
                 
             case 2:
-                cell.setup(descr: "humidity", data: "", addData: weatherData.currently.humidityString)
+                cell.setup(descr: "Humidity", data: "", addData: weatherData.currently.humidityString)
                 
             case 3:
-                cell.setup(descr: "pressure", data: "", addData: weatherData.currently.pressureString)
+                cell.setup(descr: "Pressure", data: "", addData: weatherData.currently.pressureString)
                 
             case 4:
-                cell.setup(descr: "wind speed", data: "", addData: weatherData.currently.windSpeedString)
+                cell.setup(descr: "Wind speed", data: "", addData: weatherData.currently.windSpeedString)
                 
             case 5:
-                cell.setup(descr: "visibility", data: "", addData: weatherData.currently.visibilityString)
+                cell.setup(descr: "Visibility", data: "", addData: weatherData.currently.visibilityString)
                 
             default:
                 break
             }
             
         } else if weatherDataType == .daily {
+            
             cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
                        data: weatherData.daily.data[indexPath.row].temperatureMinString,
                        addData: weatherData.daily.data[indexPath.row].temperatureMaxString)
         }
+        
         return cell
     }
 }

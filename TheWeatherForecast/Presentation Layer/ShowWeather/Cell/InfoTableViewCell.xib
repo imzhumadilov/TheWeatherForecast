@@ -17,21 +17,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5Z-zL-bKi">
-                        <rect key="frame" x="16" y="8" width="44" height="24"/>
+                        <rect key="frame" x="16" y="8" width="140" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgN-rF-31T">
-                        <rect key="frame" x="200" y="9" width="44" height="22"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CW5-hh-pNw">
-                        <rect key="frame" x="260" y="9" width="44" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgN-rF-31T">
+                        <rect key="frame" x="164" y="9" width="44" height="22"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="44" id="47c-Zl-gna"/>
+                            <constraint firstAttribute="width" constant="44" id="WSX-Ix-Odb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CW5-hh-pNw">
+                        <rect key="frame" x="224" y="9" width="80" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="47c-Zl-gna"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
@@ -46,9 +49,11 @@
                     <constraint firstItem="CW5-hh-pNw" firstAttribute="centerY" secondItem="g5Z-zL-bKi" secondAttribute="centerY" id="YHJ-jQ-z5B"/>
                     <constraint firstItem="g5Z-zL-bKi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="iCZ-Js-N5K"/>
                     <constraint firstAttribute="trailing" secondItem="CW5-hh-pNw" secondAttribute="trailing" constant="16" id="jgG-Rj-cVU"/>
+                    <constraint firstItem="NgN-rF-31T" firstAttribute="leading" secondItem="g5Z-zL-bKi" secondAttribute="trailing" constant="8" id="oVc-oy-983"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="column1" destination="g5Z-zL-bKi" id="gus-P1-Uz4"/>
                 <outlet property="column2" destination="NgN-rF-31T" id="ech-3q-zXh"/>

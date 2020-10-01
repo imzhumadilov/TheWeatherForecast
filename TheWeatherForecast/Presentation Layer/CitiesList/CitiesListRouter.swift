@@ -8,6 +8,7 @@
 
 protocol CitiesListRouterInput {
     func pushChooseCityViewController()
+    func presentShowWeatherViewController(address: Address)
 }
 
 final class CitiesListRouter: CitiesListRouterInput {
@@ -22,5 +23,14 @@ final class CitiesListRouter: CitiesListRouterInput {
         chooseCityVC.viewModel?.delegate = viewController?.viewModel
         
         viewController?.navigationController?.pushViewController(chooseCityVC, animated: true)
+    }
+    
+    func presentShowWeatherViewController(address: Address) {
+        let showWeatherVC = ShowWeatherConfigurator.create()
+        let viewModelInput = ShowWeatherConfigurator.configure(with: showWeatherVC)
+        viewModelInput.configure(with: address)
+        
+        showWeatherVC.modalPresentationStyle = .overFullScreen
+        viewController?.present(showWeatherVC, animated: true)
     }
 }
