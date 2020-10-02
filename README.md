@@ -1,5 +1,5 @@
 # TheWeatherForecast
 
-The app is not working now :( I am in the process.
+The app is working, but I am in the process. I want to add some features.
 
 MVVM + CoreData
