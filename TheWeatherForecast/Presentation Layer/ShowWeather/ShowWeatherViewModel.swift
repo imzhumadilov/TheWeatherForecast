@@ -14,8 +14,12 @@ class ShowWeatherViewModel {
 
     // MARK: - Props
     var loadDataCompletion: ((Result<(weatherData: WeatherData, address: Address), Error>) -> Void)?
-    private var address: Address?
+    
     private let weatherService = WeatherService()
+    
+    var address: Address?
+    var weatherData: WeatherData?
+    var weatherDataType: WeatherDataType = .currently
     
     // MARK: - Public functions
     public func loadData() {
@@ -27,6 +31,7 @@ class ShowWeatherViewModel {
             switch result {
             
             case .success(let weatherData):
+                self.weatherData = weatherData
                 self.loadDataCompletion?(.success((weatherData, address)))
                 
             case .failure(let error):

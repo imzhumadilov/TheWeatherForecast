@@ -18,12 +18,6 @@ final class ShowWeatherViewController: UIViewController {
     // MARK: - Props
     var viewModel: ShowWeatherViewModel?
     var router: ShowWeatherRouterInput?
-    private var weatherData: WeatherData?
-    private var weatherDataType: WeatherDataType = .currently {
-        didSet {
-            tableView.reloadData()
-        }
-    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -59,10 +53,12 @@ extension ShowWeatherViewController {
         switch sender.selectedSegmentIndex {
         
         case 0:
-            weatherDataType = .currently
+            viewModel?.weatherDataType = .currently
+            tableView.reloadData()
             
         case 1:
-            weatherDataType = .daily
+            viewModel?.weatherDataType = .daily
+            tableView.reloadData()
             
         default:
             break
@@ -80,7 +76,6 @@ extension ShowWeatherViewController {
             switch result {
                 
             case .success(let data):
-                self?.weatherData = data.weatherData
                 self?.tableView.reloadData()
                 self?.cityNameLabel.text = data.address.displayTitle
                 self?.weatherImageView.image = UIImage(named: data.weatherData.currently.icon)
@@ -97,9 +92,9 @@ extension ShowWeatherViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let weatherData = weatherData else { return 0 }
+        guard let weatherData = viewModel?.weatherData else { return 0 }
         
-        if weatherDataType == .currently {
+        if viewModel?.weatherDataType == .currently {
             return 6
         }
         
@@ -111,9 +106,9 @@ extension ShowWeatherViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = tableView
                 .dequeueReusableCell(withIdentifier: InfoTableViewCell.id,
                                      for: indexPath) as? InfoTableViewCell,
-              let weatherData = weatherData else { return UITableViewCell() }
+              let weatherData = viewModel?.weatherData else { return UITableViewCell() }
         
-        if weatherDataType == .currently {
+        if viewModel?.weatherDataType == .currently {
             
             switch indexPath.row {
             
@@ -139,7 +134,7 @@ extension ShowWeatherViewController: UITableViewDelegate, UITableViewDataSource 
                 break
             }
             
-        } else if weatherDataType == .daily {
+        } else if viewModel?.weatherDataType == .daily {
             
             cell.setup(descr: weatherData.daily.data[indexPath.row].timeString,
                        data: weatherData.daily.data[indexPath.row].temperatureMinString,

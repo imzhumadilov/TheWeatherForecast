@@ -17,12 +17,6 @@ final class CitiesListViewController: UIViewController {
     var viewModel: CitiesListViewModel?
     var router: CitiesListRouterInput?
     
-    private var addressList: [Address] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +58,7 @@ extension CitiesListViewController {
             
             switch result {
                 
-            case .success(let addressList):
-                self?.addressList = addressList
+            case .success:
                 self?.tableView.reloadData()
             
             case .failure(let error):
@@ -79,24 +72,33 @@ extension CitiesListViewController {
 extension CitiesListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        addressList.count
+        
+        guard let addressList = viewModel?.addressList else { return 0 }
+        
+        return addressList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView
                 .dequeueReusableCell(withIdentifier: CityTableViewCell.id,
-                                     for: indexPath) as? CityTableViewCell else { return UITableViewCell() }
+                                     for: indexPath) as? CityTableViewCell,
+              let addressList = viewModel?.addressList else { return UITableViewCell() }
         
         cell.setup(title: addressList[indexPath.row].displayTitle)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let addressList = viewModel?.addressList else { return }
+        
         router?.presentShowWeatherViewController(address: addressList[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        guard let addressList = viewModel?.addressList else { return }
         
         if editingStyle == .delete {
             viewModel?.removeAddress(addressList[indexPath.row])
