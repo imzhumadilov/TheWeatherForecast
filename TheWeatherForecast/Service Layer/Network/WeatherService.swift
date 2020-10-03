@@ -13,7 +13,7 @@ class WeatherService {
     
     func getData(coordinates: Coordinates, completion: @escaping (Swift.Result<WeatherData, Error>) -> (Void)) {
         
-        guard let url = URL(string: "https://api.forecast.io/forecast/\(apiKey)/\(coordinates.latitude),\(coordinates.longitude)") else { return }
+        guard let url = URL(string: Routing.Weather.forecast + "/\(apiKey)/\(coordinates.latitude),\(coordinates.longitude)") else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             

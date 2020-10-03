@@ -35,6 +35,8 @@ final class ShowWeatherViewController: UIViewController {
         
         tableView.register(UINib(nibName: InfoTableViewCell.id, bundle: nil),
                            forCellReuseIdentifier: InfoTableViewCell.id)
+        
+        cityNameLabel.text = ""
     }
     
 }
