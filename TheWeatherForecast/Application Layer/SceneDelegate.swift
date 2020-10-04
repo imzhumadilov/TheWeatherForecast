@@ -48,7 +48,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         let navigationController = UINavigationController(rootViewController: viewController)
-
+        navigationController.setNavigationBarHidden(true, animated: false)
+        
         let attributes = [NSAttributedString.Key.font: UIFont(name: "Noteworthy-Bold", size: 15)]
         UINavigationBar.appearance().titleTextAttributes = attributes as [NSAttributedString.Key: Any]
         

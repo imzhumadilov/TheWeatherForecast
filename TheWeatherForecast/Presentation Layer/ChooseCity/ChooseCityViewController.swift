@@ -76,6 +76,11 @@ extension ChooseCityViewController {
             }
         }
     }
+    
+    @IBAction
+    func closeButtonTapped(_ sender: UIButton) {
+        router?.popVC()
+    }
 }
 
 // MARK: - Module functions

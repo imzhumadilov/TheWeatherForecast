@@ -27,11 +27,7 @@ final class CitiesListViewController: UIViewController {
     }
     
     // MARK: - Setup functions
-    func setupComponents() {
-        
-        navigationItem.title = "Cities"
-        let rightBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(rightBarButtonTapped))
-        navigationItem.setRightBarButton(rightBarButton, animated: true)
+    private func setupComponents() {
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -42,9 +38,9 @@ final class CitiesListViewController: UIViewController {
 
 // MARK: - Actions
 extension CitiesListViewController {
-    
-    @objc
-    func rightBarButtonTapped() {
+
+    @IBAction
+    func addCityButtonTapped(_ sender: UIButton) {
         router?.pushChooseCityViewController()
     }
 }

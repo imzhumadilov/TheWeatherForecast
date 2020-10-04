@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,25 +18,46 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OTb-bG-ruZ">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OTb-bG-ruZ">
+                    <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cities" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb5-o9-ucz">
+                    <rect key="frame" x="60" y="59" width="294" height="30.5"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQ6-ti-tGI">
+                    <rect key="frame" x="370" y="62" width="28" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="1H7-vZ-8DL"/>
+                        <constraint firstAttribute="width" constant="28" id="Mwz-YN-nc2"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" backgroundImage="plus" catalog="system"/>
+                    <connections>
+                        <action selector="addCityButtonTapped:" destination="-1" eventType="touchUpInside" id="gYk-37-yqb"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.22745098039215686" green="0.6705882352941176" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="gb5-o9-ucz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="NlV-ed-OHE"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OTb-bG-ruZ" secondAttribute="trailing" id="RrC-vZ-0fA"/>
+                <constraint firstItem="gb5-o9-ucz" firstAttribute="centerY" secondItem="aQ6-ti-tGI" secondAttribute="centerY" id="SgP-Fe-niR"/>
+                <constraint firstItem="aQ6-ti-tGI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="eiP-5g-O5f"/>
                 <constraint firstAttribute="bottom" secondItem="OTb-bG-ruZ" secondAttribute="bottom" id="gaA-Zg-vk0"/>
-                <constraint firstItem="OTb-bG-ruZ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="tSK-nu-hxK"/>
+                <constraint firstItem="OTb-bG-ruZ" firstAttribute="top" secondItem="aQ6-ti-tGI" secondAttribute="bottom" constant="16" id="oLi-SX-nTn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aQ6-ti-tGI" secondAttribute="trailing" constant="16" id="pYj-R9-Lrl"/>
+                <constraint firstItem="aQ6-ti-tGI" firstAttribute="leading" secondItem="gb5-o9-ucz" secondAttribute="trailing" constant="16" id="yUz-9Y-pcp"/>
                 <constraint firstItem="OTb-bG-ruZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="zTl-HT-Ou0"/>
             </constraints>
             <point key="canvasLocation" x="136.23188405797103" y="152.67857142857142"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
